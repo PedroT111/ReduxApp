@@ -1,0 +1,29 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Coca-Cola",
+        "precio": "150"
+      },
+      {
+        "id": 2,
+        "nombre": "Pepsi",
+        "precio": "160"
+      },
+      {
+        "nombre": "Lays",
+        "precio": "120",
+        "id": 3
+      },
+      {
+        "nombre": "Doritos",
+        "precio": "300",
+        "id": 4
+      },
+      {
+        "nombre": "Cerveza",
+        "precio": "200",
+        "id": 5
+      }
+    ]
+  }
