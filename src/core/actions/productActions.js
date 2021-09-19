@@ -5,5 +5,30 @@ import{
 } from "../types/";
 
 export function createNewProduct(p) {
-    return()=>{console.log(p)}
+    return(
+        dispatch)=>{dispatch(addProduct());
+
+        try{
+            dispatch(successfullAddProduct(p));
+        }
+        catch(error){
+            dispatch(errorAddProduct(true));
+        }
+
+    }
 }
+
+const addProduct = () => ({
+    type: ADD_PRODUCT,
+    payload: true
+});
+
+const successfullAddProduct = p => ({
+    type: ADD_PRODUCT_SUCCESSFUL,
+    payload: p
+});
+
+const errorAddProduct = err => ({
+    type: ADD_PRODUCT_ERROR,
+    payload: err
+});
