@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {createNewProduct} from "../core/actions/productActions";
-
+import {Row, Col, Card, CardBody, Form, FormGroup, Input, Label, Button, InputGroup, InputGroupText } from "reactstrap";
 
 
 const NewProduct = () => {
@@ -28,43 +28,38 @@ const NewProduct = () => {
         addProduct(product);
 
     }
+
     return(
-        <div className="row justify-content-center">
-            <div className="col-md-8">
-                <div className="card border border-secondary border-3">
-                    <div className="card-body">
+        <Row className="justify-content-center">
+            <Col md="8">
+                <Card className="border border-secondary border-3">
+                    <CardBody>
                         <h2 className="text-center">Add New Product</h2>
-
-                        <form onSubmit={onSubmit}> 
-                            <div className="form-group">
-                            <label className="col-form-label">Product Name</label>
-                            <input 
-                            className="form-control"
-                            type="text"
-                            name="name"
-                            onChange={onChange}
-                            />
-                            </div>
-                            <div className="form-group">
-                            <label className="col-form-label">Price</label>
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input 
-                                className="form-control"
-                                type="number"
-                                name="price"
-                                onChange={onChange}
-                                />
-                            </div>
-                            
-                            </div> 
-
-                            <button className="btn btn-outline-secondary font-weight-bold w-100 d-block mt-4">Add Product</button>                           
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <Form onSubmit={onSubmit}>
+                            <FormGroup>
+                                <Label>Product Name</Label>
+                                <Input
+                                type="text"
+                                name="name"
+                                onChange={onChange}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label></Label>
+                                <InputGroup>
+                                    <InputGroupText>$</InputGroupText>
+                                    <Input
+                                    className="form-control"
+                                    type="number"
+                                    name="price"
+                                    onChange={onChange}/>
+                                </InputGroup>     
+                            </FormGroup>
+                            <Button className="outline-secondary font-weight-bold w-100 d-block mt-4">Add Product</Button>
+                        </Form>
+                    </CardBody>
+                </Card>
+            </Col>
+        </Row>
     )
 
 
