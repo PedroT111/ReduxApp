@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {createNewProduct} from "../core/actions/productActions";
-import {Row, Col, Card, CardBody, Form, FormGroup, Input, Label, Button, InputGroup, InputGroupText } from "reactstrap";
+import { Row,
+         Col,
+         Card,
+         CardBody,
+         Form,
+         FormGroup,
+         Input, Label, Button, InputGroup, InputGroupText } from "reactstrap";
+import { Alert } from 'reactstrap';
 
 
-const NewProduct = () => {
-
+const NewProduct = ({history}) => {
     const[product, setProduct]= useState({
         name: "",
         price: ""
@@ -18,16 +24,21 @@ const NewProduct = () => {
     };
 
     const dispatch = useDispatch();
+
+    const loading = useSelector(state => state.products.loading);
+    const error = useSelector(state => state.products.error);
+
    const addProduct = p => dispatch(createNewProduct(p));
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-
         //create product
         addProduct(product);
 
+        history.push('/');
+
     }
+
 
     return(
         <Row className="justify-content-center">
@@ -56,6 +67,12 @@ const NewProduct = () => {
                             </FormGroup>
                             <Button className="outline-secondary font-weight-bold w-100 d-block mt-4">Add Product</Button>
                         </Form>
+                        {
+                            error ? <Alert color="danger" className="mt-3">There was an Error</Alert> : null
+                        }
+                        {
+                            //loading? agregar spinner de carga
+                        }
                     </CardBody>
                 </Card>
             </Col>

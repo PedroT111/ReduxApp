@@ -1,29 +1,64 @@
 {
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Coca-Cola",
-        "precio": "150"
-      },
-      {
-        "id": 2,
-        "nombre": "Pepsi",
-        "precio": "160"
-      },
-      {
-        "nombre": "Lays",
-        "precio": "120",
-        "id": 3
-      },
-      {
-        "nombre": "Doritos",
-        "precio": "300",
-        "id": 4
-      },
-      {
-        "nombre": "Cerveza",
-        "precio": "200",
-        "id": 5
-      }
-    ]
-  }
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Coca-Cola",
+      "precio": "150"
+    },
+    {
+      "id": 2,
+      "nombre": "Pepsi",
+      "precio": "160"
+    },
+    {
+      "nombre": "Lays",
+      "precio": "120",
+      "id": 3
+    },
+    {
+      "nombre": "Doritos",
+      "precio": "300",
+      "id": 4
+    },
+    {
+      "nombre": "Cerveza",
+      "precio": "200",
+      "id": 5
+    },
+    {
+      "name": "gregr",
+      "price": "43",
+      "id": 6
+    },
+    {
+      "name": "gregr",
+      "price": "43",
+      "id": 7
+    },
+    {
+      "name": "ef4",
+      "price": "423",
+      "id": 8
+    },
+    {
+      "name": "eew",
+      "price": "342",
+      "id": 9
+    },
+    {
+      "name": "wd",
+      "price": "231",
+      "id": 10
+    },
+    {
+      "name": "4",
+      "price": "32423",
+      "id": 11
+    },
+    {
+      "name": "de",
+      "price": "232",
+      "id": 12
+    }
+  ]
+}
