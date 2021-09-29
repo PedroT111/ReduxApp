@@ -20,7 +20,7 @@ const Products = () => {
         <Container>
             <Row className="justify-content-center">
                 <Col lg="10" sm="10" xs="12">
-                    <h2>List of Products</h2>
+                    <h2 className="text-center">List of Products</h2>
                     <Table>
                         <thead>
                             <tr>
