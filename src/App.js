@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./components/header"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 //componnets
-import Product from "./components/product"
+import Product from "./components/products"
 import NewProduct from "./components/newProduct";
 import EditProduct from "./components/editProduct";
 //Redux
