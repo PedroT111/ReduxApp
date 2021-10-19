@@ -1,21 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
 import { useDispatch } from "react-redux";
-import { deleteProductAction } from "../core/actions/productActions";
+import { deleteProductAction, getProductEditAction } from "../core/actions/productActions";
+import Swal from "sweetalert2";
 
 
 const Product = ({product}) => {
     const{id, name, price} = product;
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const confirmDeleteProduct = (id) => {
+        Swal.fire({
+            title:"Are you sure?",
+            text:"You won't be able to revert this",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete product"
+        }).then((result) => {
+            if(result.value){
+                //Action
+                dispatch(deleteProductAction(id));
+            }
+        });
+    }
 
-
-
-        //Action
-        dispatch(deleteProductAction(id));
-
+    const edit = (product) => {
+        dispatch(getProductEditAction(product));
+        history.push(`/product/edit/${product.id}`)
     }
     return(
         <tr key={id}>
@@ -23,7 +36,13 @@ const Product = ({product}) => {
             <td>{name}</td>
             <td>${price}</td>
             <td>
-                <Button className=" m-2 px-4 py-2" color="dark"><Link className="text-decoration-none text-light" to ={`/product/edit/${id}`}>Edit</Link></Button>
+                <Button 
+                className=" m-2 px-4 py-2"
+                color="dark"
+                type="button"
+                onClick={() => edit(product)}>
+                    Edit
+                </Button>
                 <Button 
                  className=" m-2 px-4 py-2"
                  color="danger"

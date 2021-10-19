@@ -7,14 +7,17 @@ import{
     DOWNLOAD_PRODUCTS_ERROR,
     GET_PRODUCT_DELETE,
     PRODUCT_DELETED_ERROR,
-    PRODUCT_DELETED_SUCCESSFUL
+    PRODUCT_DELETED_SUCCESSFUL,
+    GET_PRODUCT_EDIT,
+    PRODUCT_EDIT_SUCCESSFUL
 } from "../types/"
 
 const initialState = {
     products: [],
     error: null,
     loading: false,
-    deleteProduct: false,
+    deleteProduct: null,
+    editProduct: null,
 };
 
 
@@ -63,6 +66,33 @@ export default function(state = initialState, action) {
                 ...state,
                 deleteProduct: action.payload
             }     
+        }
+        case PRODUCT_DELETED_SUCCESSFUL:{
+            return{
+                ...state,
+                products: state.products.filter(p => p.id !== state.deleteProduct),//get products diferents to deleteProduct
+                deleteProduct: null, 
+            }
+        }
+        case PRODUCT_DELETED_ERROR:{
+            return{
+                ...state,
+                deleteProduct: null
+            }
+        }
+        case GET_PRODUCT_EDIT:{
+            return{
+                ...state,
+                editProduct: action.payload
+            }
+        }
+        case PRODUCT_EDIT_SUCCESSFUL:{
+            return{
+                ...state,
+                editProduct: null,
+                products: state.products.map(product =>
+                    product.id === action.payload.id ? product = action.payload : product)
+            }
         }
         default:
             return state;

@@ -2,38 +2,13 @@
   "productos": [
     {
       "name": "gregr",
-      "price": "43",
-      "id": 7
+      "price": "1",
+      "id": 15
     },
     {
-      "name": "ef4",
-      "price": "423",
-      "id": 8
-    },
-    {
-      "name": "eew",
-      "price": "342",
-      "id": 9
-    },
-    {
-      "name": "wd",
-      "price": "231",
-      "id": 10
-    },
-    {
-      "name": "4",
-      "price": "32423",
-      "id": 11
-    },
-    {
-      "name": "de",
-      "price": "232",
-      "id": 12
-    },
-    {
-      "name": "wdwq",
-      "price": "2321",
-      "id": 13
+      "name": "gregre",
+      "price": "43243",
+      "id": 16
     }
   ]
 }

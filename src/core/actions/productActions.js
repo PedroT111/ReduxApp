@@ -7,7 +7,11 @@ import{
     DOWNLOAD_PRODUCTS_ERROR,
     GET_PRODUCT_DELETE,
     PRODUCT_DELETED_ERROR,
-    PRODUCT_DELETED_SUCCESSFUL
+    PRODUCT_DELETED_SUCCESSFUL,
+    GET_PRODUCT_EDIT,
+    PRODUCT_EDIT_ERROR,
+    PRODUCT_EDIT_SUCCESSFUL,
+    NEW_PRODUCT_EDIT,
 } from "../types/";
 import clientAxios from "../../config/axios";
 import Swal from "sweetalert2";
@@ -80,8 +84,24 @@ const downloadProductsError = () => ({
 export function deleteProductAction(id){
     return async (dispatch) => {
         dispatch(getProductDelete(id));
-
-        console.log(id);
+        
+        try{
+            const res = await clientAxios.delete(`productos/${id}`);
+            dispatch(deleteProductSuccessful(id));
+            Swal.fire(
+                "Deleted",
+                "Your file has been deleted.",
+                "success"
+            )
+        }
+        catch{
+            dispatch(deleteProductError());
+            Swal.fire(
+                "Error",
+                "Your product couldn`t be deleted",
+                "error"
+            )
+        }
     }
 };
 
@@ -89,3 +109,59 @@ const getProductDelete = id => ({
     type: GET_PRODUCT_DELETE,
     payload: id
 });
+
+const deleteProductSuccessful = () => ({
+    type: PRODUCT_DELETED_SUCCESSFUL,
+});
+
+const deleteProductError = () => ({
+    type: PRODUCT_DELETED_ERROR,
+    payload: true
+});
+
+
+export function getProductEditAction(product){
+    return (dispatch) => {dispatch(getProductEdit(product))};
+};
+
+const getProductEdit = product => ({
+    type: GET_PRODUCT_EDIT,
+    payload: product
+});
+
+export function editProductAction(product){
+    return async (dispatch) => {
+        dispatch(editProduct(product));
+        try{
+            await clientAxios.put(`/productos/${product.id}`, product);
+            dispatch(editProductSuccessful(product));
+            Swal.fire(
+                "Ok",
+                "Your product has been edited",
+                "ok"
+            );
+
+        }
+        catch{
+            dispatch(editProductError());
+            Swal.fire(
+                "Error",
+                "Your product couldn`t be edited",
+                "error"
+            );
+        }
+    }
+};
+
+const editProduct = () => ({
+    type: NEW_PRODUCT_EDIT
+});
+
+const editProductError = () => ({
+    type: PRODUCT_EDIT_ERROR,
+});
+
+const editProductSuccessful = product => ({
+    type: PRODUCT_EDIT_SUCCESSFUL,
+    payload: product
+})
