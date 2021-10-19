@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { deleteProductAction, getProductEditAction } from "../core/actions/productActions";

@@ -12,7 +12,7 @@ const Header = () => {
                     <h1><Link to={"/"} className=" text-light">Products App</Link></h1>
                 </div>
                 <div className="px-5">
-                    <Button outline className="px-3 py-2"><Link className="text-light" to="/product/new">Add Product</Link></Button>   
+                    <Link className="text-light" to="/product/new"><Button outline className="py-2 text-light">Add Product</Button></Link>   
                 </div>
             </Navbar>
         </div>

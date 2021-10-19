@@ -10,7 +10,7 @@ const Products = () => {
     useEffect(() => {
         const getProducts = () => dispatch(getProductsAction());
         getProducts();
-    }, []);
+    }, [dispatch]);
 
     const Products = useSelector(state => state.products.products);
     const error = useSelector(state => state.error);

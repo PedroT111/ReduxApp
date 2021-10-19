@@ -26,7 +26,7 @@ export function createNewProduct(p) {
             Swal.fire({
                 title: "Successful",
                 text:"Product add",
-                icon: "succes"
+                icon: "success"
             })
         }
         catch(error){
@@ -86,7 +86,7 @@ export function deleteProductAction(id){
         dispatch(getProductDelete(id));
         
         try{
-            const res = await clientAxios.delete(`productos/${id}`);
+            await clientAxios.delete(`productos/${id}`);
             dispatch(deleteProductSuccessful(id));
             Swal.fire(
                 "Deleted",

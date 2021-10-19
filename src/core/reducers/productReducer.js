@@ -9,7 +9,8 @@ import{
     PRODUCT_DELETED_ERROR,
     PRODUCT_DELETED_SUCCESSFUL,
     GET_PRODUCT_EDIT,
-    PRODUCT_EDIT_SUCCESSFUL
+    PRODUCT_EDIT_SUCCESSFUL,
+    PRODUCT_EDIT_ERROR
 } from "../types/"
 
 const initialState = {
@@ -19,8 +20,6 @@ const initialState = {
     deleteProduct: null,
     editProduct: null,
 };
-
-
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function(state = initialState, action) {
@@ -92,6 +91,12 @@ export default function(state = initialState, action) {
                 editProduct: null,
                 products: state.products.map(product =>
                     product.id === action.payload.id ? product = action.payload : product)
+            }
+        }
+        case PRODUCT_EDIT_ERROR:{
+            return{
+                ...state,
+                editProduct: null
             }
         }
         default:

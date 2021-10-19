@@ -10,7 +10,6 @@ import { Row,
          Input, Label, Button, InputGroup, InputGroupText } from "reactstrap";
 import { Alert } from 'reactstrap';
 
-
 const NewProduct = ({history}) => {
     const[product, setProduct]= useState({
         name: "",
@@ -25,7 +24,6 @@ const NewProduct = ({history}) => {
 
     const dispatch = useDispatch();
 
-    const loading = useSelector(state => state.products.loading);
     const error = useSelector(state => state.products.error);
 
    const addProduct = p => dispatch(createNewProduct(p));
@@ -69,9 +67,6 @@ const NewProduct = ({history}) => {
                         </Form>
                         {
                             error ? <Alert color="danger" className="mt-3">There was an Error</Alert> : null
-                        }
-                        {
-                            //loading? agregar spinner de carga
                         }
                     </CardBody>
                 </Card>
